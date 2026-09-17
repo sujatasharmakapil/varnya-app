@@ -48,20 +48,20 @@ export default function BookingSection() {
           </p>
 
           {/* Price block */}
-          <div className="mt-10 inline-flex flex-col sm:flex-row items-center gap-6 border border-gold/20 px-8 py-6" style={{ background: 'rgba(201,168,76,0.04)' }}>
-            <div className="text-center sm:text-left">
+          <div className="mt-10 inline-flex flex-col items-center gap-4 border border-gold/20 px-6 py-6 w-full max-w-sm sm:max-w-none sm:w-auto sm:flex-row sm:gap-6 sm:px-8" style={{ background: 'rgba(201,168,76,0.04)' }}>
+            <div className="text-center">
               <p className="text-xs tracking-[0.4em] text-gold/50 uppercase font-light mb-1">Total Price</p>
-              <p className="font-serif text-4xl text-stone-200 font-light">₹7,000</p>
+              <p className="font-serif text-3xl sm:text-4xl text-stone-200 font-light">₹7,000</p>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-gold/20" />
-            <div className="text-center sm:text-left">
+            <div className="w-16 h-px sm:w-px sm:h-12 bg-gold/20" />
+            <div className="text-center">
               <p className="text-xs tracking-[0.4em] text-gold/50 uppercase font-light mb-1">Pre-Booking Amount</p>
-              <p className="font-serif text-4xl text-gold font-light">₹3,000</p>
+              <p className="font-serif text-3xl sm:text-4xl text-gold font-light">₹3,000</p>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-gold/20" />
-            <div className="text-center sm:text-left">
+            <div className="w-16 h-px sm:w-px sm:h-12 bg-gold/20" />
+            <div className="text-center">
               <p className="text-xs tracking-[0.4em] text-gold/50 uppercase font-light mb-1">Balance Due</p>
-              <p className="font-serif text-4xl text-stone-400 font-light">₹4,000</p>
+              <p className="font-serif text-3xl sm:text-4xl text-stone-400 font-light">₹4,000</p>
               <p className="text-xs text-stone-600 font-light mt-1">on delivery</p>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function BookingSection() {
             Select Your Unit Number — Batch 01
           </p>
 
-          <div className="grid grid-cols-7 gap-2 md:gap-3">
+          <div className="grid grid-cols-4 xs:grid-cols-5 sm:grid-cols-7 gap-2 md:gap-3">
             {Array.from({ length: TOTAL_UNITS }, (_, i) => i + 1).map((n) => {
               const reserved = isReserved(n)
               const selected = selectedUnit === n

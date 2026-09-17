@@ -123,10 +123,11 @@ export default function IngredientsSection() {
 
         {/* Glass card slider */}
         <div className={`section-reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
-          <div className="relative">
+          {/* Navigation arrows sit outside the card on md+, inline on mobile */}
+          <div className="relative px-0 md:px-10">
             {/* Main card */}
             <div
-              className={`bg-glass-strong rounded-sm p-8 md:p-12 min-h-[360px] flex flex-col md:flex-row gap-10 items-center transition-opacity duration-300 ${animating ? 'opacity-0' : 'opacity-100'}`}
+              className={`bg-glass-strong rounded-sm p-6 sm:p-8 md:p-12 flex flex-col md:flex-row gap-6 md:gap-10 items-center transition-opacity duration-300 ${animating ? 'opacity-0' : 'opacity-100'}`}
               style={{
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(201,168,76,0.04) 100%)',
                 backdropFilter: 'blur(30px)',
@@ -135,9 +136,9 @@ export default function IngredientsSection() {
               }}
             >
               {/* Emoji / icon side */}
-              <div className="flex-shrink-0 flex flex-col items-center gap-4">
+              <div className="flex-shrink-0 flex flex-col items-center gap-3">
                 <div
-                  className="w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center text-5xl md:text-6xl"
+                  className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center text-4xl sm:text-5xl md:text-6xl"
                   style={{
                     background: 'radial-gradient(circle, rgba(201,168,76,0.15) 0%, rgba(0,0,0,0.3) 100%)',
                     border: '1px solid rgba(201,168,76,0.25)',
@@ -146,37 +147,37 @@ export default function IngredientsSection() {
                 >
                   {ing.emoji}
                 </div>
-                <span className="text-xs tracking-[0.25em] text-gold/40 uppercase font-light">Origin: {ing.origin}</span>
+                <span className="text-[10px] sm:text-xs tracking-[0.2em] text-gold/40 uppercase font-light text-center">Origin: {ing.origin}</span>
               </div>
 
               {/* Text side */}
               <div className="flex-1 text-center md:text-left">
-                <p className="text-xs tracking-[0.5em] text-gold/50 uppercase font-light mb-2">
+                <p className="text-[10px] sm:text-xs tracking-[0.4em] text-gold/50 uppercase font-light mb-2">
                   Ingredient {String(active + 1).padStart(2, '0')} of 08
                 </p>
-                <h3 className="font-serif text-3xl md:text-4xl text-stone-100 font-light mb-1">
+                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-stone-100 font-light mb-1">
                   {ing.name}
                 </h3>
-                <p className="text-gold/70 font-serif italic text-lg mb-1">{ing.sanskrit}</p>
-                <p className="text-stone-500 text-sm tracking-wider uppercase mb-5">{ing.english}</p>
-                <div className="gold-divider w-16 mb-5" style={{ display: 'block' }} />
-                <p className="text-stone-300 font-light leading-relaxed text-base md:text-lg">
+                <p className="text-gold/70 font-serif italic text-base sm:text-lg mb-1">{ing.sanskrit}</p>
+                <p className="text-stone-500 text-xs sm:text-sm tracking-wider uppercase mb-4">{ing.english}</p>
+                <div className="gold-divider w-16 mb-4 mx-auto md:mx-0" style={{ display: 'block' }} />
+                <p className="text-stone-300 font-light leading-relaxed text-sm sm:text-base md:text-lg">
                   {ing.benefit}
                 </p>
               </div>
             </div>
 
-            {/* Navigation arrows */}
+            {/* Navigation arrows — inside container on mobile, outside on md+ */}
             <button
               onClick={prev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 md:-translate-x-6 w-11 h-11 border border-gold/30 bg-charcoal-900 hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 flex items-center justify-center text-gold/60 hover:text-gold"
+              className="absolute left-0 top-1/2 -translate-y-1/2 md:-translate-x-0 w-9 h-9 sm:w-11 sm:h-11 border border-gold/30 bg-charcoal-900/90 hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 flex items-center justify-center text-gold/60 hover:text-gold text-xl"
               aria-label="Previous ingredient"
             >
               ‹
             </button>
             <button
               onClick={next}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 md:translate-x-6 w-11 h-11 border border-gold/30 bg-charcoal-900 hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 flex items-center justify-center text-gold/60 hover:text-gold"
+              className="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 border border-gold/30 bg-charcoal-900/90 hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 flex items-center justify-center text-gold/60 hover:text-gold text-xl"
               aria-label="Next ingredient"
             >
               ›
@@ -184,7 +185,7 @@ export default function IngredientsSection() {
           </div>
 
           {/* Dot indicators */}
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
             {INGREDIENTS.map((_, i) => (
               <button
                 key={i}
@@ -192,7 +193,7 @@ export default function IngredientsSection() {
                 aria-label={`Go to ingredient ${i + 1}`}
                 className={`transition-all duration-300 rounded-full ${
                   i === active
-                    ? 'w-8 h-2 bg-gold'
+                    ? 'w-6 sm:w-8 h-2 bg-gold'
                     : 'w-2 h-2 bg-gold/20 hover:bg-gold/40'
                 }`}
               />
@@ -200,12 +201,12 @@ export default function IngredientsSection() {
           </div>
 
           {/* All ingredient pills */}
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 sm:mt-10 flex flex-wrap justify-center gap-2 sm:gap-3">
             {INGREDIENTS.map((ing, i) => (
               <button
                 key={ing.name}
                 onClick={() => goTo(i)}
-                className={`text-xs px-4 py-2 border transition-all duration-300 tracking-widest uppercase font-light ${
+                className={`text-[10px] sm:text-xs px-3 sm:px-4 py-1.5 sm:py-2 border transition-all duration-300 tracking-widest uppercase font-light ${
                   i === active
                     ? 'border-gold/60 text-gold bg-gold/10'
                     : 'border-gold/15 text-stone-500 hover:border-gold/30 hover:text-stone-300'

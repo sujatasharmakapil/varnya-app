@@ -50,9 +50,9 @@ export default function CraftsmanshipSection() {
               <p className="text-stone-400 text-sm font-light leading-relaxed">
                 Hand-turned by master kaarigars of Moradabad — India's brass capital — using centuries-old lathe craft. The pure brass vessel is skin-safe, antimicrobial, and engraved with the VARNYA lotus seal.
               </p>
-              <div className="mt-4 flex gap-4">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {['Pure Brass', 'Hand-Turned', 'Lotus Engraved'].map(tag => (
-                  <span key={tag} className="text-[10px] tracking-[0.25em] border border-gold/30 text-gold/60 px-3 py-1 uppercase">
+                  <span key={tag} className="text-[10px] tracking-[0.2em] border border-gold/30 text-gold/60 px-2 py-1 uppercase">
                     {tag}
                   </span>
                 ))}
@@ -83,9 +83,9 @@ export default function CraftsmanshipSection() {
               <p className="text-stone-400 text-sm font-light leading-relaxed">
                 A dying art of inlaying gold-brass wire into seasoned rosewood. Each box is hand-crafted in Mainpuri, UP — taking 3–5 days per piece. No two boxes are identical. Yours is a one-of-a-kind heirloom.
               </p>
-              <div className="mt-4 flex gap-4">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {['Rosewood', 'Brass Inlay', 'Heirloom Craft'].map(tag => (
-                  <span key={tag} className="text-[10px] tracking-[0.25em] border border-gold/30 text-gold/60 px-3 py-1 uppercase">
+                  <span key={tag} className="text-[10px] tracking-[0.2em] border border-gold/30 text-gold/60 px-2 py-1 uppercase">
                     {tag}
                   </span>
                 ))}
