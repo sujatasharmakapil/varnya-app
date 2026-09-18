@@ -55,6 +55,42 @@ export default function AyurvedicVisionSection() {
           </div>
         </div>
 
+        {/* Full-width formula image */}
+        <div className={`mb-24 section-reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.25s' }}>
+          <div className="relative overflow-hidden rounded-sm">
+            <img
+              src="/assets/new.png"
+              alt="VARNYA Ayurvedic formula — open brass container with herbal powder, saffron and rose petals"
+              className="w-full h-64 sm:h-80 md:h-[480px] lg:h-[560px] object-cover object-center transition-transform duration-700 hover:scale-105"
+            />
+            {/* Gradient overlays for text legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-800 via-charcoal-800/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-charcoal-800/40 via-transparent to-charcoal-800/40" />
+
+            {/* Overlay caption */}
+            <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-10 py-6 sm:py-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+              <div>
+                <p className="text-xs tracking-[0.5em] text-gold/60 uppercase font-light mb-1">The Formula</p>
+                <p className="font-serif text-xl sm:text-2xl md:text-3xl text-stone-100 font-light">
+                  8 Herbs. One Ritual. Pure Radiance.
+                </p>
+              </div>
+              <div className="flex gap-4 sm:gap-6 text-center flex-shrink-0">
+                {[
+                  { val: '🏵️', label: 'Kashmiri Kesar' },
+                  { val: '🌹', label: 'Kannauj Rose' },
+                  { val: '✦', label: 'Moti Pishti' },
+                ].map(({ val, label }) => (
+                  <div key={label}>
+                    <p className="text-lg sm:text-xl">{val}</p>
+                    <p className="text-[9px] sm:text-[10px] tracking-[0.2em] text-gold/50 uppercase font-light mt-1">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Skin type cards */}
         <div className={`section-reveal ${visible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
           <p className="text-center text-xs tracking-[0.5em] text-gold/50 uppercase font-light mb-8">
